@@ -99,15 +99,15 @@ void loop() {
 //--------------------------------------------------
 
 String BuildHtmlVerify(String alert = "") {
-  return "<!DOCTYPE html><html><head>" + (alert == "" ? "" : ("<script>alert('" + alert + "');</script>")) + "<title>ESP-32 RGB-Manager - Verify</title></head><body><h1>Enter Password, to allow Firmware-Update</h1><form method='POST' action='" + URL_VERIFY + "'><label for='password'>Password:</label><input type='password' name='password' required><br><input type='submit' value='Verify...'><br></form></body></html>";
+  return "<!DOCTYPE html><html><head><title>ESP32-RGB-Manager - Verify</title><script>let msg = '" + alert + "'; if(msg != '') alert(msg);</script></head><body><h1>For updating the firmware, verification is required!</h1><form method='POST' action='" + URL_VERIFY + "'><label>Password:</label><input type='password' name='" + PARAMETER_PASSWORD + "' required><br><input type='submit' value='Verify...'><br></form></body></html>";
 }
 
 String BuildHtmlUpdate(String alert = "") {
-  return "<!DOCTYPE html><html><head>" + (alert == "" ? "" : ("<script>alert('" + alert + "');</script>")) + "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/><meta name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no'><title>GreenPonik.com - WebView</title></head><body><h1>Actual Firmware Release: " + FIRMWARE_VERSION + "</h1><h1>Only .bin file</h1><form method='POST' action='/update' enctype='multipart/form-data'><input type='file' name='update' required><input type='submit' value='Run Update'></form></body></html>";
+  return "<!DOCTYPE html><html><head><title>ESP-32 RGB-Manager - Update</title><script>let msg = '" + alert + "'; if(msg != '') alert(msg);</script></head><body><h1>Installed firmware version: " + FIRMWARE_VERSION + "</h1><h2>Select the firmware (.bin) you want to install:</h2><form method='POST' action='" + URL_UPDATE + "' enctype='multipart/form-data'><input type='file' required><br><input type='submit' value='Run Update'></form></body></html>";
 }
 
 String BuildHtmlHome(String alert = "") {
-  return "<!DOCTYPE html><html><head>" + (alert == "" ? "" : ("<script>alert('" + alert + "');</script>")) + "<title>ESP-32 RGB-Manager - Verify</title></head><body><h1>HOME</h1></body></html>";
+  return "<!DOCTYPE html><html><head><title>ESP-32 RGB-Manager - Verify</title><script>let msg = '" + alert + "'; if(msg != '') alert(msg);</script></head><body><h1>HOME</h1></body></html>";
 }
 
 
